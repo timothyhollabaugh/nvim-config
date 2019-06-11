@@ -46,4 +46,8 @@ Plug 'floobits/floobits-neovim'
 " Minimap
 Plug 'severin-lemaignan/vim-minimap'
 
+"Postgresql
+Plug 'lifepillar/pgsql.vim'
+Plug 'martingms/vipsql'
+
 call plug#end()
