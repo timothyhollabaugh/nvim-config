@@ -65,3 +65,16 @@ let g:vimtex_compiler_latexmk = {
 \   '-xelatex',
 \ ],
 \}
+
+" pgsql language
+let g:sql_type_default = 'pgsql'
+
+function! ConfigFiles(ArgLead, CmdLine, CursorPos)
+    return system("fd . ~/.config/nvim/ | sed 's$^.*config/nvim/$$'")
+endfunction
+
+command! -nargs=1 -complete=custom,ConfigFiles Config e ~/.config/nvim/<args>
+command! Reload so ~/.config/nvim/init.vim
+
+command! Tab set  noexpandtab
+command! Space set  expandtab

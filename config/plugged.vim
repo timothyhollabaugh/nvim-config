@@ -50,4 +50,7 @@ Plug 'severin-lemaignan/vim-minimap'
 Plug 'lifepillar/pgsql.vim'
 Plug 'martingms/vipsql'
 
+" Show marks
+Plug 'kshenoy/vim-signature'
+
 call plug#end()
