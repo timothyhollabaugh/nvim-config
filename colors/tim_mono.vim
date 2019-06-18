@@ -48,6 +48,7 @@ hi SignColumn ctermbg=DarkGrey ctermfg=White guifg=White guibg=#444444
 hi MatchParen term=bold cterm=bold ctermbg=none ctermfg=none gui=bold guibg=none guifg=none
 hi Comment term=italic cterm=italic ctermfg=Grey gui=italic guifg=#666666 guibg=none
 hi Todo term=italic,bold cterm=italic,bold ctermbg=none ctermfg=none gui=italic,bold guibg=none guifg=none
+hi ColorColumn guibg=#f9f9f9
 
 " Autocomplete
 hi Pmenu guibg=#dcdad5

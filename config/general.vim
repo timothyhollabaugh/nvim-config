@@ -51,6 +51,8 @@ endfunc
 
 " call NumberToggle()
 
+set colorcolumn=75
+
 " gcode language
 au BufRead,BufNewFile *.gcode,*.gco,*.gc,*.nc :setfiletype gcode
 
