@@ -10,7 +10,7 @@ let g:LanguageClient_serverCommands = {
     \ 'rust' : ['rustup', 'run', 'stable', 'rls'],
     \ 'cpp' : ['clangd'],
     \ 'python': ['pyls'],
-    \ 'elm': ['elm-language-server', '--stdio'],
+    \ 'elm': ['/home/tim/.node_modules/bin/elm-language-server', '--stdio'],
     \ }
 " Minimal LSP configuration for JavaScript
 autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
@@ -67,3 +67,8 @@ let g:LanguageClient_diagnosticsDisplay =  {
 
 filetype plugin on
 set omnifunc=syntaxcomplete#Complete
+
+let g:LanguageClient_devel = 1
+let g:LanguageClient_loggingLevel = 'DEBUG'
+
+let g:LanguageClient_loggingFile = expand('~/.config/nvim/LanguageClient.log')
