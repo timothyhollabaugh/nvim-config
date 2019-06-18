@@ -5,6 +5,7 @@ set foldmethod=syntax
 
 set showmatch           " Show matching brackets.
 set number              " Show the line numbers on the left side.
+set cursorline          " Highlight the current line
 " set formatoptions+=o    " Continue comment marker in new lines.
 " set textwidth=0         " Hard-wrap long lines as you type them.
 
@@ -30,9 +31,7 @@ set nostartofline       " Do not jump to first character with page commands.
 
 " Tell Vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
-if &listchars ==# 'eol:$'
-  set listchars=tab:>\ ,trail:-,extends:>,precedes:<,nbsp:+
-endif
+set listchars=tab:│\ ,trail:-,extends:>,precedes:<,nbsp:+
 set list                " Show problematic characters.
 
 " set ignorecase          " Make searching case insensitive
@@ -50,7 +49,7 @@ function! NumberToggle()
   endif
 endfunc
 
-call NumberToggle()
+" call NumberToggle()
 
 " gcode language
 au BufRead,BufNewFile *.gcode,*.gco,*.gc,*.nc :setfiletype gcode
