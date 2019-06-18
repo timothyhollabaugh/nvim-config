@@ -21,7 +21,7 @@ hi StatusLineNC term=reverse cterm=reverse gui=reverse
 hi VertSplit ctermbg=White ctermfg=Black gui=None guifg=#333333 guibg=#f0f0f0
 hi Visual term=reverse ctermbg=black guibg=grey60
 hi DiffText term=reverse cterm=bold ctermbg=Red gui=bold guibg=Red
-hi Cursor guibg=Green guifg=Black
+hi Cursor guibg=#444444 guifg=#f0f0f0
 hi lCursor guibg=Cyan guifg=Black
 hi Directory term=bold cterm=bold ctermfg=none gui=bold guifg=none
 hi LineNr term=underline ctermfg=Grey guifg=Grey
@@ -54,12 +54,15 @@ hi Pmenu guibg=#dcdad5
 hi PmenuSel guibg=#c3c3c3
 
 " Language client
-hi ALEError term=underline cterm=underline ctermfg=Red gui=underline guifg=#ff4b47
-hi ALEErrorSign cterm=bold ctermfg=red gui=bold guifg=#ff4b47
-hi ALEWarning term=underline cterm=underline ctermfg=Yellow gui=underline guifg=#ffc800
-hi ALEWarningSign cterm=bold ctermfg=Yellow gui=bold guifg=#ffc800
-hi ALEInfo term=underline cterm=underline gui=underline
-hi ALEInfoSign cterm=bold ctermfg=Black gui=bold guifg=Black
+hi ErrorText term=underline cterm=underline ctermfg=Red gui=underline guifg=#ff4b47
+hi ErrorSign cterm=bold ctermfg=red gui=bold guifg=#ff4b47
+hi ErrorDesc term=italic cterm=italic ctermfg=red gui=italic guifg=#c3c3c3
+hi WarningText term=underline cterm=underline ctermfg=Yellow gui=underline guifg=#ffc800
+hi WarningSign cterm=bold ctermfg=Yellow gui=bold guifg=#ffc800
+hi WarningDesc term=italic cterm=italic ctermfg=red gui=italic guifg=#c3c3c3
+hi InfoText term=underline cterm=underline gui=underline
+hi InfoSign cterm=bold ctermfg=Black gui=bold guifg=Black
+hi InfoDesc term=italic cterm=italic ctermfg=red gui=italic guifg=#c3c3c3
 
 " Groups for syntax highlighting
 hi Constant term=italic cterm=italic ctermfg=none gui=italic guifg=none
@@ -78,7 +81,7 @@ hi elmType term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none gu
 hi elmOperator term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
 hi elmImport term=bold cterm=bold ctermbg=none ctermfg=none gui=bold guibg=none guifg=none
 hi elmTopLevelFunction term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
-hi elmFuncName term=underline cterm=underline ctermbg=none ctermfg=none gui=underline guibg=none guifg=none
+hi elmFuncName term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
 
 hi sqlPsqlCommand gui=bold
 hi sqlPlpgsqlKeyword gui=bold
