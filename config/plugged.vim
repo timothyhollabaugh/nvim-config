@@ -13,6 +13,9 @@ Plug 'autozimu/LanguageClient-neovim', {
     \ 'do': 'bash install.sh',
 \ }
 
+" Vim language completions
+Plug 'Shougo/neco-vim'
+
 " Showing function signature and inline doc.
 Plug 'Shougo/echodoc.vim'
 

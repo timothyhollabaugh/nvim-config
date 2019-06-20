@@ -44,6 +44,9 @@ function! <SID>SynStack()
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
 
+nmap <leader>b :b#<CR>
+nmap ; q:i
+
 " Starts an async psql job, prompting for the psql arguments.
 " Also opens a scratch buffer where output from psql is directed.
 noremap <leader>po :VipsqlOpenSession<CR>
