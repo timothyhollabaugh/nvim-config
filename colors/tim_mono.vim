@@ -72,6 +72,7 @@ hi Function term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none g
 hi vimHiKeyList term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
 hi vimHiAttribList term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
 hi vimHiAttrib term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
+hi vimVar term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
 
 " Language specific highlighting
 hi elmType term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
@@ -90,5 +91,11 @@ hi logDomain term=underline cterm=underline ctermbg=none ctermfg=none gui=underl
 hi logFilePath term=underline cterm=underline ctermbg=none ctermfg=none gui=underline guibg=none guifg=none
 hi logLevelWarning term=bold cterm=bold ctermbg=none ctermfg=none gui=bold guibg=none guifg=none
 hi logLevelError term=bold cterm=bold ctermbg=none ctermfg=none gui=bold guibg=none guifg=none
+
+hi StatusLine term=underline cterm=underline ctermbg=none ctermfg=none gui=underline guibg=none guifg=none
+hi StatusLineNC term=underline cterm=underline ctermbg=none ctermfg=none gui=underline guibg=none guifg=#666666
+
+hi WildMenu term=underline,bold cterm=underline,bold ctermbg=none ctermfg=none gui=underline,bold guibg=none guifg=none
+
 
 " vim: sw=2

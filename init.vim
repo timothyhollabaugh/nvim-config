@@ -1,4 +1,3 @@
-source ~/.config/nvim/config/airline.vim
 source ~/.config/nvim/config/plugged.vim
 source ~/.config/nvim/config/general.vim
 source ~/.config/nvim/config/keybindings.vim

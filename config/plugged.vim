@@ -17,8 +17,11 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'Shougo/echodoc.vim'
 
 " status bar at bottom
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+"Plug 'vim-airline/vim-airline'
+"Plug 'vim-airline/vim-airline-themes'
+
+" Lightlight
+"Plug 'itchyny/lightline.vim'
 
 " syntax support for many languages
 Plug 'sheerun/vim-polyglot'

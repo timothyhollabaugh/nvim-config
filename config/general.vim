@@ -34,6 +34,8 @@ set nostartofline       " Do not jump to first character with page commands.
 set listchars=tab:│\ ,trail:-,extends:>,precedes:<,nbsp:+
 set list                " Show problematic characters.
 
+set fillchars=stl:\ ,stlnc:\ ,vert:│,fold:-,diff:-
+
 " set ignorecase          " Make searching case insensitive
 " set smartcase           " ... unless the query has capital letters.
 " set gdefault            " Use 'g' flag by default with :s/foo/bar/.
