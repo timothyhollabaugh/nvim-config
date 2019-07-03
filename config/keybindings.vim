@@ -71,3 +71,9 @@ noremap <leader>pb :VipsqlSendBuffer<CR>
 
 " Sends `SIGINT` (C-c) to the psql process.
 noremap <leader>pc :VipsqlSendInterrupt<CR>
+
+cnoremap <C-j> <Right>
+cnoremap <C-k> <Left>
+cnoremap : <C-d>
+
+noremap <leader>i :JavaImport<CR>

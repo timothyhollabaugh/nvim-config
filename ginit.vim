@@ -1,4 +1,3 @@
 
-if exists('g:GtkGuiLoaded')
-    
-endif
+set guifont= 'Fira Code:h9'
+

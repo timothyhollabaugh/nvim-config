@@ -4,7 +4,7 @@ set mouse=a
 set foldmethod=syntax
 
 set showmatch           " Show matching brackets.
-set number              " Show the line numbers on the left side.
+" set number              " Show the line numbers on the left side.
 set cursorline          " Highlight the current line
 " set formatoptions+=o    " Continue comment marker in new lines.
 " set textwidth=0         " Hard-wrap long lines as you type them.
@@ -41,19 +41,27 @@ set fillchars=stl:\ ,stlnc:\ ,vert:│,fold:-,diff:-
 " set gdefault            " Use 'g' flag by default with :s/foo/bar/.
 set magic               " Use 'magic' patterns (extended regular expressions).
 
+set wildmode=full
+
 " Relative numbering
 function! NumberToggle()
-  if(&relativenumber == 1)
-    set nornu
-    set number
-  else
-    set rnu
-  endif
+    if(&relativenumber == 1)
+        set nornu
+        set nonumber
+    elseif(&number == 1)
+        set rnu
+        set number
+    else
+        set nornu
+        set number
+    endif
 endfunc
 
 " call NumberToggle()
 
-set colorcolumn=75
+set colorcolumn=
+
+set signcolumn=yes
 
 " gcode language
 au BufRead,BufNewFile *.gcode,*.gco,*.gc,*.nc :setfiletype gcode
@@ -82,3 +90,5 @@ command! Reload so ~/.config/nvim/init.vim
 
 command! Tab set  noexpandtab
 command! Space set  expandtab
+
+

@@ -9,7 +9,7 @@ endif
 
 let colors_name = "tim_mono"
 
-hi Normal ctermbg=White ctermfg=Black guifg=#333333 guibg=#f0f0f0
+hi Normal ctermbg=White ctermfg=Black guifg=none guibg=none
 
 " Groups used in the 'highlight' and 'guicursor' options default value.
 hi ErrorMg term=standout ctermfg=Red
@@ -18,16 +18,16 @@ hi ModeMsg term=bold cterm=bold gui=bold
 hi StatusLine term=reverse,bold cterm=reverse,bold gui=reverse,bold
 hi StatusLineNC term=reverse cterm=reverse gui=reverse
 "hi VertSplit term=reverse cterm=reverse gui=reverse
-hi VertSplit ctermbg=White ctermfg=Black gui=None guifg=#333333 guibg=#f0f0f0
+hi VertSplit ctermbg=White ctermfg=Black gui=None guifg=#999999 guibg=none
 hi Visual term=reverse ctermbg=black guibg=grey60
 hi DiffText term=reverse cterm=bold ctermbg=Red gui=bold guibg=Red
-hi Cursor guibg=#444444 guifg=#f0f0f0
+hi Cursor guibg=#444444 guifg=none
 hi lCursor guibg=Cyan guifg=Black
 hi Directory term=bold cterm=bold ctermfg=none gui=bold guifg=none
 hi LineNr term=underline ctermfg=Grey guifg=Grey
 hi MoreMsg term=bold ctermfg=LightGreen gui=bold guifg=SeaGreen
 " hi NonText term=bold ctermfg=LightBlue gui=bold guifg=LightBlue guibg=grey30
-hi NonText term=bold ctermfg=White gui=bold guifg=#f9f9f9
+hi NonText term=bold ctermfg=White gui=bold guifg=#c3c3c3
 hi Question term=standout ctermfg=LightGreen gui=bold guifg=Green
 "hi Search term=reverse ctermbg=Yellow ctermfg=Black guibg=Yellow guifg=Black
 hi Search term=underline cterm=underline ctermbg=none gui=underline guibg=none
@@ -65,6 +65,9 @@ hi InfoText term=underline cterm=underline gui=underline
 hi InfoSign cterm=bold ctermfg=Black gui=bold guifg=Black
 hi InfoDesc term=italic cterm=italic ctermfg=red gui=italic guifg=#c3c3c3
 
+hi Error cterm=bold ctermfg=red gui=bold guibg=none guifg=#ff4b47
+hi WarningMsg cterm=bold ctermfg=Yellow gui=bold guifg=#ffc800
+
 " Groups for syntax highlighting
 hi Constant term=italic cterm=italic ctermfg=none gui=italic guifg=none
 hi Special term=bold ctermfg=none  guifg=none
@@ -73,6 +76,7 @@ hi Type term=bold cterm=bold ctermbg=none ctermfg=none gui=bold guibg=none guifg
 hi Ignore ctermfg=DarkGrey guifg=grey20
 hi PreProc term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
 hi Function term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
+hi Identifier term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
 hi vimHiKeyList term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
 hi vimHiAttribList term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
 hi vimHiAttrib term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
@@ -89,6 +93,8 @@ hi sqlPsqlCommand gui=bold
 hi sqlPlpgsqlKeyword gui=bold
 hi sqlKeyword gui=bold
 hi sqlTable guifg=none
+
+hi javaExternal gui=bold
 
 hi logOperator term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none
 hi logDomain term=underline cterm=underline ctermbg=none ctermfg=none gui=underline guibg=none guifg=none
