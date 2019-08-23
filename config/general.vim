@@ -31,7 +31,7 @@ set nostartofline       " Do not jump to first character with page commands.
 
 " Tell Vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
-set listchars=tab:│\ ,trail:-,extends:>,precedes:<,nbsp:+
+set listchars=tab:│\ ,trail:⋅,extends:>,precedes:<,nbsp:+
 set list                " Show problematic characters.
 
 set fillchars=stl:\ ,stlnc:\ ,vert:│,fold:-,diff:-
@@ -90,5 +90,6 @@ command! Reload so ~/.config/nvim/init.vim
 
 command! Tab set  noexpandtab
 command! Space set  expandtab
-
+"ff
+set statusline=%f%=\ %Y\ \|\ %l/%L:%c
 
