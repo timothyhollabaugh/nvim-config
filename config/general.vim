@@ -31,7 +31,7 @@ set nostartofline       " Do not jump to first character with page commands.
 
 " Tell Vim which characters to show for expanded TABs,
 " trailing whitespace, and end-of-lines. VERY useful!
-set listchars=tab:│\ ,trail:⋅,extends:>,precedes:<,nbsp:+
+set listchars=tab:│\ ,trail:·,extends:>,precedes:<,nbsp:+
 set list                " Show problematic characters.
 
 set fillchars=stl:\ ,stlnc:\ ,vert:│,fold:-,diff:-
@@ -42,6 +42,9 @@ set fillchars=stl:\ ,stlnc:\ ,vert:│,fold:-,diff:-
 set magic               " Use 'magic' patterns (extended regular expressions).
 
 set wildmode=full
+
+set completeopt=menuone,noinsert,noselect
+set shortmess+=c
 
 " Relative numbering
 function! NumberToggle()
@@ -90,6 +93,9 @@ command! Reload so ~/.config/nvim/init.vim
 
 command! Tab set  noexpandtab
 command! Space set  expandtab
-"ff
+
 set statusline=%f%=\ %Y\ \|\ %l/%L:%c
 
+let g:tex_flavor = 'latex'
+
+autocmd FileType markdown setlocal spell spelllang=en_US

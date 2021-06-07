@@ -17,5 +17,5 @@ endif
 
 syntax on
 
-colorscheme tim_mono
+colorscheme tim_dia
 

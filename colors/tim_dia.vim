@@ -7,7 +7,7 @@ if exists("syntax_on")
   syntax reset
 endif
 
-let colors_name = "tim_mono"
+let colors_name = "tim_dia"
 
 hi Normal ctermbg=White ctermfg=Black guifg=none guibg=none
 
@@ -63,30 +63,44 @@ hi Pmenu guibg=#dcdad5
 hi PmenuSel guibg=#c3c3c3
 
 " Language client
-hi LspDiagnosticsError term=italic cterm=italic ctermfg=red gui=italic guifg=#ff4b47
+hi LspDiagnosticsVirtualTextError term=bold cterm=bold ctermfg=red gui=bold guifg=#ff4b47
 hi LspDiagnosticsUnderlineError term=underline cterm=underline ctermfg=Red gui=underline guifg=#ff4b47
-hi LspDiagnosticsErrorSign cterm=bold ctermfg=red gui=bold guifg=#ff4b47
+hi LspDiagnosticsSignError cterm=bold ctermfg=red gui=bold guifg=#ff4b47
+hi LspDiagnosticsFloatingError cterm=bold ctermfg=red gui=bold guifg=#ff4b47
 
-hi LspDiagnosticsWarning term=italic cterm=italic ctermfg=red gui=italic guifg=#ffc800
-hi LspDiagnosticsUnderlineWarning term=underline cterm=underline ctermfg=Yellow gui=underline guifg=#ffc800
-hi LspDiagnosticsWarningSign cterm=bold ctermfg=Yellow gui=bold guifg=#ffc800
+hi LspDiagnosticsVirtualTextWarning term=bold cterm=bold ctermfg=red gui=bold guifg=#ffbf00
+hi LspDiagnosticsUnderlineWarning term=underline cterm=underline ctermfg=Yellow gui=underline guifg=#ffbf00
+hi LspDiagnosticsSignWarning cterm=bold ctermfg=Yellow gui=bold guifg=#ffbf00
+hi LspDiagnosticsFloatingWarning cterm=bold ctermfg=Yellow gui=bold guifg=#ffbf00
 
+hi LspDiagnosticsVirtualTextInformation term=bold cterm=bold ctermfg=red gui=bold guifg=blue
 hi LspDiagnosticsUnderlineInformation term=underline cterm=underline gui=underline guifg=blue
-hi LspDiagnosticsInformationSign cterm=bold ctermfg=Black gui=bold guifg=blue
-hi LspDiagnosticsInformation term=italic cterm=italic ctermfg=red gui=italic guifg=blue
+hi LspDiagnosticsSignInformation cterm=bold ctermfg=Black gui=bold guifg=blue
+hi LspDiagnosticsFloatingInformation cterm=bold ctermfg=Black gui=bold guifg=blue
 
-hi LspDiagnosticsUnderlineHint term=underline cterm=underline gui=underline guifg=Green
-hi LspDiagnosticsHintSign cterm=bold ctermfg=Black gui=bold guifg=Green
-hi LspDiagnosticsHint term=italic cterm=italic ctermfg=red gui=italic guifg=Green
+hi LspDiagnosticsVirtualTextHint term=bold cterm=bold ctermfg=red gui=bold guifg=#999999
+hi LspDiagnosticsUnderlineHint term=underline cterm=underline gui=underline
+hi LspDiagnosticsSignHint cterm=none ctermfg=Black gui=none guifg=#999999
+hi LspDiagnosticsFloatingHint cterm=bold ctermfg=Black gui=bold guifg=#999999
+
+hi NormalFloat guibg=#f9f9f9
 
 hi Error cterm=bold ctermfg=red gui=bold guibg=none guifg=#ff4b47
 hi ErrorMsg cterm=bold ctermfg=red gui=bold guibg=none guifg=#ff4b47
-hi WarningMsg cterm=bold ctermfg=Yellow gui=bold guifg=#ffc800
+hi WarningMsg cterm=bold ctermfg=Yellow gui=bold guifg=#ffbf00
+
+
+hi SpellBad term=underline cterm=underline ctermfg=Red gui=underline guifg=#ff4b47
+hi SpellCap term=underline cterm=underline ctermfg=Yellow gui=underline guifg=#ffbf00
+hi SpellRare term=underline cterm=underline gui=underline guifg=blue
+hi SpellLocal term=underline cterm=underline gui=underline guifg=Green
 
 " Groups for syntax highlighting
 hi Constant term=italic cterm=italic ctermfg=none gui=italic guifg=none
 hi Special term=bold ctermfg=none  guifg=none
-hi Statement term=bold cterm=bold ctermfg=none guifg=none gui=bold
+hi Statement term=bold cterm=bold ctermfg=none guifg=none gui=bold guifg=#f74c00
+hi Title term=bold cterm=bold ctermfg=none guifg=none gui=bold guifg=#f74c00
+hi Include term=bold cterm=bold ctermfg=none guifg=none gui=bold guifg=#f74c00
 hi Type term=bold cterm=bold ctermbg=none ctermfg=none gui=bold guibg=none guifg=none
 hi Ignore ctermfg=DarkGrey guifg=grey20
 hi PreProc term=none cterm=none ctermbg=none ctermfg=none gui=none guibg=none guifg=none

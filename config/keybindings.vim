@@ -3,15 +3,40 @@
 let mapleader="\<SPACE>"
 
 " language client
-nnoremap <F5> :call LanguageClient_contextMenu()<CR>
-nnoremap <silent> M :call LanguageClient_textDocument_hover()<CR>
-nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
-nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+"nnoremap <F5> :call LanguageClient_contextMenu()<CR>
+"nnoremap <silent> M :call LanguageClient_textDocument_hover()<CR>
+"nnoremap <silent> gd :call LanguageClient_textDocument_definition()<CR>
+"nnoremap <silent> <F2> :call LanguageClient_textDocument_rename()<CR>
+
+"nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> gd <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> gp    <cmd>lua vim.lsp.diagnostic.set_loclist({open_loclist=true, severity_limit="Warning"})<CR>
 
 " deoplete tab-complete
-inoremap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
-inoremap <expr> <C-J> pumvisible() ? "\<C-n>" : "\<C-J>"
-inoremap <expr> <C-K> pumvisible() ? "\<C-p>" : "\<C-K>"
+"inoremap <expr> <tab> pumvisible() ? "\<c-n>" : "\<tab>"
+"inoremap <expr> <C-J> pumvisible() ? "\<C-n>" : "\<C-J>"
+
+" Trigger completion with <tab>
+" found in :help completion
+" Use <Tab> and <S-Tab> to navigate through popup menu
+inoremap <expr> <Tab>   pumvisible() ? "\<C-n>" : "\<Esc>"
+inoremap <expr> <C-j>   pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k>   pumvisible() ? "\<C-p>" : "\<C-n>"
+
+" use <Tab> as trigger keys
+imap <Tab> <Plug>(completion_smart_tab)
+imap <S-Tab> <Plug>(completion_smart_s_tab)inoremap <expr> <C-K> pumvisible() ? "\<C-p>" : "\<C-K>"
+
+" Goto previous/next diagnostic warning/error
+nnoremap <silent> g[ <cmd>lua vim.lsp.diagnostic.goto_prev()<CR>
+nnoremap <silent> g] <cmd>lua vim.lsp.diagnostic.goto_next()<CR>
 
 " Toggle between normal and relative numbering.
 nnoremap <leader>r :call NumberToggle()<cr>
@@ -28,13 +53,14 @@ nnoremap <A-h> <C-w>h
 nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
-
 " resizing splits
 nnoremap <A-.> <C-w>>
 nnoremap <A-,> <C-w><
 nnoremap <A-=> <C-w>+
 nnoremap <A--> <C-w>-
 nnoremap <A-0> <C-w>=
+
+nnoremap <leader>e J^90lF i<CR><ESC>
 
 nmap <leader>s :call <SID>SynStack()<CR>
 function! <SID>SynStack()
@@ -74,6 +100,10 @@ noremap <leader>pc :VipsqlSendInterrupt<CR>
 
 cnoremap <C-j> <Right>
 cnoremap <C-k> <Left>
-cnoremap : <C-d>
 
 noremap <leader>i :JavaImport<CR>
+
+noremap <leader>g :call LanguageClient#textDocument_definition()<CR>
+
+noremap <leader>dg :diffget<CR>
+noremap <leader>dp :diffput<CR>

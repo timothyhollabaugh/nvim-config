@@ -1,74 +1,49 @@
+lua <<EOF
 
-" Automatically start language servers.
-let g:LanguageClient_autoStart = 1
+local nvim_lsp = require'lspconfig'
 
-let g:LanguageClient_serverCommands = {
-    \ 'javascript' : ['javascript-typescript-stdio'],
-    \ 'javascript.jsx' : ['javascript-typescript-stdio'],
-    \ 'typescript' : ['javascript-typescript-stdio'],
-    \ 'typescript.jsx' : ['javascript-typescript-stdio'],
-    \ 'rust' : ['rustup', 'run', 'stable', 'rls'],
-    \ 'cpp' : ['clangd'],
-    \ 'python': ['pyls'],
-    \ 'elm': ['/home/tim/.node_modules/bin/elm-language-server', '--stdio'],
-    \ }
-" Minimal LSP configuration for JavaScript
-autocmd FileType javascript setlocal omnifunc=LanguageClient#complete
-autocmd FileType javascript setlocal formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+local on_attach = function(client)
+    require'completion'.on_attach(client)
+end
 
-autocmd FileType javascript.jsx setlocal omnifunc=LanguageClient#complete
-autocmd FileType javascript.jsx setlocal formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+nvim_lsp.rust_analyzer.setup({on_attach=on_attach})
 
-autocmd FileType rust setlocal omnifunc=LanguageClient#complete
-autocmd FileType rust setlocal formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+nvim_lsp.bashls.setup({on_attach=on_attach})
 
-autocmd FileType cpp setlocal omnifunc=LanguageClient#complete
-autocmd FileType cpp setlocal formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+nvim_lsp.pyls.setup({on_attach=on_attach})
 
-autocmd FileType c setlocal omnifunc=LanguageClient#complete
-autocmd FileType c setlocal formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+nvim_lsp.texlab.setup({
+    on_attach = on_attach;
+    settings = {
+        build = {
+            executable = "tectonic";
+            onSave = true;
+        };
+    };
+})
 
-autocmd FileType python setlocal omnifunc=LanguageClient#complete
-autocmd FileType python setlocal formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+-- Enable diagnostics
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    virtual_text = { prefix = "❰", spacing = 2 },
+    signs = { priority = 99 },
+    update_in_insert = true,
+  }
+)
 
-autocmd FileType elm setlocal omnifunc=LanguageClient#complete
-autocmd FileType elm setlocal formatexpr=LanguageClient#textDocument_rangeFormatting_sync()
+EOF
 
-let g:LanguageClient_diagnosticsDisplay =  {
-      \ 1: {
-          \ "name": "Error",
-          \ "texthl": "ErrorText",
-          \ "signText": "✖",
-          \ "signTexthl": "ErrorSign",
-          \ "virtualTexthl": "ErrorDesc",
-      \ },
-      \ 2: {
-          \ "name": "Warning",
-          \ "texthl": "WarningText",
-          \ "signText": "!",
-          \ "signTexthl": "WarningSign",
-          \ "virtualTexthl": "WarningDesc",
-      \ },
-      \ 3: {
-          \ "name": "Information",
-          \ "texthl": "InfoText",
-          \ "signText": "➜",
-          \ "signTexthl": "InfoSign",
-          \ "virtualTexthl": "InfoDesc",
-      \ },
-      \ 4: {
-          \ "name": "Hint",
-          \ "texthl": "InfoText",
-          \ "signText": "➤",
-          \ "signTexthl": "InfoSign",
-          \ "virtualTexthl": "InfoDesc",
-      \ },
-  \ }
+" Enable inlay type hints
+autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
+\ lua require'lsp_extensions'.inlay_hints{ prefix = ': ', highlight = "Comment", enabled = {"TypeHint", "ChainingHint", "ParameterHint"} }
 
-filetype plugin on
-set omnifunc=syntaxcomplete#Complete
+" Set updatetime for CursorHold
+" 300ms of no cursor movement to trigger CursorHold
+set updatetime=300
+" Show diagnostic popup on cursor hover
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({show_header = false})
 
-let g:LanguageClient_devel = 1
-let g:LanguageClient_loggingLevel = 'DEBUG'
-
-let g:LanguageClient_loggingFile = expand('~/.config/nvim/LanguageClient.log')
+sign define LspDiagnosticsSignError text=✕ texthl=LspDiagnosticsSignError
+sign define LspDiagnosticsSignWarning text=! texthl=LspDiagnosticsSignWarning
+sign define LspDiagnosticsSignInformation text=> texthl=LspDiagnosticsSignInformation
+sign define LspDiagnosticsSignHint text=→ texthl=LspDiagnosticsSignHint
